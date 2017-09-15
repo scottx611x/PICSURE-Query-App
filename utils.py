@@ -2,9 +2,12 @@ import requests
 import json
 import time
 
-AVAILABLE_STATE = "AVAILABLE"
-RUNNING_STATE = "RUNNING"
-ERROR_STATE = "ERROR"
+from plotly import figure_factory
+import plotly.offline as plotly_offline
+
+
+from constants import RUNNING_STATE, AVAILABLE_STATE, ERROR_STATE, \
+    PLOTLY_TABLE_FONT_SIZE
 
 
 def get(url, session=None):
@@ -69,3 +72,25 @@ def get_scidb_query(session, url, result_service_url, result_url, afl_query=None
 
     print "Query from resultId: {} is available".format(result_id)
     return get_result_json(session, result_id, result_url)
+
+
+def generate_plotly_div(query_result):
+    column_names = [column["name"] for column in query_result["columns"]]
+    data_matrix = [column_names]
+
+    for row in query_result["data"]:
+        row_info = []
+        for index, item in enumerate(row):
+            column_name = column_names[index]
+            row_info.append(item[column_name])
+        data_matrix.append(row_info)
+
+    table = figure_factory.create_table(data_matrix)
+    for i in range(len(table.layout.annotations)):
+        table.layout.annotations[i].font.size = PLOTLY_TABLE_FONT_SIZE
+    plot_div = plotly_offline.plot(
+        table,
+        include_plotlyjs=False,
+        output_type='div'
+    )
+    return plot_div

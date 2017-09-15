@@ -15,27 +15,27 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript">
-    $( document ).ready(function() {
-      var dataDiv = $("#data");
-      $.ajax({
-        type: "POST",
-        url: "/scidb",
-        data: {"query":"{{ afl_query|decode_uri }}"},
-        success: (function (data) {
-          var table = data["table"];
-          if (data["error"]) {
-            var error = $("<code>" + data["error"] + "</code>");
-            dataDiv.append(error);
-          }
-          else {
-            dataDiv.append(table);
-          }
-          $(".message").hide();
-          $(".spinner").hide();
-        }),
-        dataType: "json"
-      });
-    });
+<script>
+$( document ).ready(function() {
+  var dataDiv = $("#data");
+  $.ajax({
+    type: "POST",
+    url: "/scidb",
+    data: {"query":"{{ afl_query|decode_uri }}"},
+    success: (function (data) {
+      var table = data["table"];
+      if (data["error"]) {
+        var error = $("<code>" + data["error"] + "</code>");
+        dataDiv.append(error);
+      }
+      else {
+        dataDiv.append(table);
+      }
+      $(".message").hide();
+      $(".spinner").hide();
+    }),
+    dataType: "json"
+  });
+});
 </script>
 {% endblock %}
