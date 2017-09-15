@@ -15,7 +15,7 @@ if API_URL == TEAM_REST_URL:
 else:
     session = u.get_secure_session(SECURITY_SERVICE_URL)
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.debug = True
 
 
