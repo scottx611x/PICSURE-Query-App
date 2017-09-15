@@ -1,5 +1,9 @@
 # afl-querier
-Web app that allows for querying PIC-SURE using AFL query strings
+Web app that allows for querying the [BD2K PICSURE API](http://bd2k-picsure.hms.harvard.edu/) using AFL query strings
+
+Can currently output results to:
+- a [plotly](https://plot.ly/) table
+- ???
 
 # Pre-reqs:
 - A valid `BD2K PICSURE API Key`
