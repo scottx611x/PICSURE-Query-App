@@ -1,5 +1,5 @@
-# afl-querier
-Web app that allows for querying the [BD2K PICSURE API](http://bd2k-picsure.hms.harvard.edu/) using [AFL query strings](http://paradigm4.com/HTMLmanual/13.3/scidb_ug/ch14.html)
+# PICSURE Query App
+Web app that allows for querying the [BD2K PICSURE API](http://bd2k-picsure.hms.harvard.edu/) using [AFL query strings](http://paradigm4.com/HTMLmanual/13.3/scidb_ug/ch14.html), JSON Strings, and dynamically based on genes of interest.
 
 Can currently output results to:
 - a [plotly](https://plot.ly/) table
@@ -12,7 +12,7 @@ Can currently output results to:
 - `virtualenv-wrapper` (optional but reccomended)
 
 # Installation:
-- `mkvirtualenv afl-querier && workon afl-querier` (optional)
+- `mkvirtualenv picsure-querier && workon picsure-querier` (optional)
 - `pip install -r requirements.txt`
 - tweak values in `constants.py` to fit your needs
 - `python app.py`
@@ -21,10 +21,10 @@ You should be able to view the site @ http://localhost:5000
 ---
 
 # Query
-<img width="1672" alt="screen shot 2017-09-15 at 2 08 54 am" src="https://user-images.githubusercontent.com/5629547/30468746-f6c6e330-99ba-11e7-8c32-4d1e27e286d9.png">
+<img width="1679" alt="screen shot 2017-09-15 at 3 36 09 pm" src="https://user-images.githubusercontent.com/5629547/30500377-0454165a-9a2c-11e7-9c42-e88e38a9d0dd.png">
 
 # Wait
-<img width="1680" alt="screen shot 2017-09-15 at 2 09 18 am" src="https://user-images.githubusercontent.com/5629547/30468744-f6c68480-99ba-11e7-9b4a-00204c373935.png">
+<img width="1680" alt="screen shot 2017-09-15 at 3 36 21 pm" src="https://user-images.githubusercontent.com/5629547/30500378-04553a44-9a2c-11e7-91ec-cc37f930e32b.png">
 
 # Viola!
-<img width="1680" alt="screen shot 2017-09-15 at 2 09 23 am" src="https://user-images.githubusercontent.com/5629547/30468745-f6c6be96-99ba-11e7-9f3d-9907efeec2e9.png">
+<img width="1679" alt="screen shot 2017-09-15 at 3 37 02 pm" src="https://user-images.githubusercontent.com/5629547/30500379-0458b822-9a2c-11e7-8c4e-52ee92e990a0.png">
