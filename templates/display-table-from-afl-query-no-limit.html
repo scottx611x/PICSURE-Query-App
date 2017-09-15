@@ -1,0 +1,41 @@
+{% extends("base.html") %}
+
+{% block content %}
+   <div class="spinner"></div>
+   <div align="center">
+      <h2 class="message">Please wait as we fetch your data:
+        <h4>
+          AFL Query: <code> {{ afl_query }}</code>
+        </h4>
+      </h2>
+   <hr>
+   </div>
+
+   <div id="data"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$( document ).ready(function() {
+  var dataDiv = $("#data");
+  $.ajax({
+    type: "POST",
+    url: "/scidb-afl-no-limit",
+    data: {"query":"{{ afl_query|decode_uri }}"},
+    success: (function (data) {
+      var table = data["table"];
+      if (data["error"]) {
+        var error = $("<code>" + data["error"] + "</code>");
+        dataDiv.append(error);
+      }
+      else {
+        dataDiv.append(table);
+      }
+      $(".message").hide();
+      $(".spinner").hide();
+    }),
+    dataType: "json"
+  });
+});
+</script>
+{% endblock %}

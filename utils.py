@@ -1,3 +1,5 @@
+import ast
+
 import requests
 import json
 import time
@@ -22,21 +24,36 @@ def get_secure_session(url):
     return session
 
 
-def _post(session, url, afl_query=None):
+def _post(session, url, afl_query=None, json_query=None):
     # TODO: Can we specify NHANES below here somewhere as well??
-    query_string = {
-        'where': [
-            {
-                'field': {
-                    'pui': '/SciDBAFL'
-                },
-                'predicate': 'AFL',
-                'fields': {'IQUERY': '{}'.format(afl_query)}
-            }
-        ]
-    }
-    post_data = json.dumps(query_string)
-    response = session.post(url, data=post_data, verify=False)
+
+    if afl_query:
+        query_string = {
+            'where': [
+                {
+                    'field': {
+                        'pui': '/SciDBAFL'
+                    },
+                    'predicate': 'AFL',
+                    'fields': {'IQUERY': '{}'.format(afl_query)}
+                }
+            ]
+        }
+        print query_string
+        post_data = query_string
+
+    if json_query:
+        post_data = json_query
+        post_data = post_data.replace("&#34;", "\"")
+        post_data = json.dumps(ast.literal_eval(post_data))
+        post_data = json.loads(post_data)
+
+    response = session.post(
+        url,
+        data=json.dumps(post_data),
+        verify=False,
+        headers={'Content-Type': 'application/json'}
+    )
     return response
 
 
@@ -46,12 +63,21 @@ def _get_result_json(session, result_id, result_url):
     return _get(result_url, session=session).json()
 
 
-def get_scidb_query(session, url, result_service_url, result_url, afl_query=None):
-    query_response = _post(
-        session,
-        url,
-        afl_query=afl_query
-    ).json()
+def get_scidb_query(session, url, result_service_url, result_url,
+                    afl_query=None, json_query=None):
+    if afl_query:
+        query_response = _post(
+            session,
+            url,
+            afl_query=afl_query
+        ).json()
+
+    if json_query:
+        query_response = _post(
+            session,
+            url,
+            json_query=json_query
+        ).json()
 
     result_id = query_response["resultId"]
     result_id_url = "{}/{}".format(result_service_url, result_id)
@@ -77,7 +103,10 @@ def generate_plotly_div(query_result):
         row_info = []
         for index, item in enumerate(row):
             column_name = column_names[index]
-            row_info.append(item[column_name])
+            if item.get(column_name):
+                row_info.append(item[column_name])
+            else:
+                row_info.append("N/A")
         data_matrix.append(row_info)
 
     table = figure_factory.create_table(data_matrix)

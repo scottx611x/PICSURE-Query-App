@@ -4,7 +4,7 @@ RUNNING_STATE = "RUNNING"
 ERROR_STATE = "ERROR"
 
 # API key
-BD2K_PICSURE_API_KEY = "p9328a0ukd626q5lb4s0iim3j7"
+BD2K_PICSURE_API_KEY = "snank457d7cbf9525s7p220t7i"
 
 # Hosts
 SSC_REST_URL = "https://ssc-dev.hms.harvard.edu/rest/v1"
@@ -28,6 +28,6 @@ SECURITY_SERVICE_URL = "{}/{}".format(
 SYSTEM_SERVICE_URL = "{}/{}".format(API_URL, "systemService")
 
 AFL_RESULT_LIMIT = 10
-APP_TITLE = "AFL Query App"
+APP_TITLE = "PICSURE Query App"
 GITHUB_URL = "https://github.com/scottx611x/afl-querier"
 PLOTLY_TABLE_FONT_SIZE = 10

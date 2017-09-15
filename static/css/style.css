@@ -1,9 +1,8 @@
-#afl-container {
-    width: inherit;
-    max-width: 50%;
-    display: inline-block;
+#afl-container, #json-wrapper {
+    max-width: 90%;
+    margin:auto;
 }
-#afl-wrapper {
+#afl-wrapper, #json-container {
     width: 100%;
     text-align: center;
 }

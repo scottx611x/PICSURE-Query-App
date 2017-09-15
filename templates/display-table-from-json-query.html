@@ -5,7 +5,7 @@
    <div align="center">
       <h2 class="message">Please wait as we fetch your data:
         <h4>
-          AFL Query: <code> {{ afl_query }}</code>
+          JSON Query: <code> {{ json_query }}</code>
         </h4>
       </h2>
    <hr>
@@ -20,8 +20,8 @@ $( document ).ready(function() {
   var dataDiv = $("#data");
   $.ajax({
     type: "POST",
-    url: "/scidb",
-    data: {"query":"{{ afl_query|decode_uri }}"},
+    url: "/scidb-json",
+    data: {"query":"{{ json_query }}"},
     success: (function (data) {
       var table = data["table"];
       if (data["error"]) {
