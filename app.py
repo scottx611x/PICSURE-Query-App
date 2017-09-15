@@ -1,11 +1,10 @@
 import urllib
 
 import requests
-from flask import Flask, request
-from flask import render_template
-from flask import jsonify
+from flask import Flask, jsonify, request, redirect, render_template
 
-from constants import (APP_TITLE, API_URL, TEAM_REST_URL, SECURITY_SERVICE_URL,
+from constants import (APP_TITLE, API_URL, GITHUB_URL,
+                       TEAM_REST_URL, SECURITY_SERVICE_URL,
                        QUERY_SERVICE_URL, RESULT_STATUS_URL, RESULT_URL,
                        AFL_RESULT_LIMIT)
 import utils as u
@@ -29,6 +28,11 @@ def decode_uri(uri):
 @app.route('/', methods=['GET'])
 def index():
     return render_template('home.html', title=APP_TITLE)
+
+
+@app.route('/github', methods=['GET'])
+def github():
+    return redirect(GITHUB_URL, code=302)
 
 
 @app.route('/table', methods=['GET'])

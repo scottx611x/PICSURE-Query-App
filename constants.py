@@ -29,4 +29,5 @@ SYSTEM_SERVICE_URL = "{}/{}".format(API_URL, "systemService")
 
 AFL_RESULT_LIMIT = 10
 APP_TITLE = "AFL Query App"
+GITHUB_URL = "https://github.com/scottx611x/afl-querier"
 PLOTLY_TABLE_FONT_SIZE = 10
