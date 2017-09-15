@@ -8,11 +8,6 @@ from flask import jsonify
 import plotly.figure_factory as figure_factory
 import plotly.offline as plotly_offline
 
-# In the true spirit of a hackathon!
-requests.packages.urllib3.disable_warnings(
-    requests.packages.urllib3.exceptions.InsecureRequestWarning
-)
-
 from utils import get_scidb_query, get_secure_session
 
 BD2K_PICSURE_API_KEY = "p9328a0ukd626q5lb4s0iim3j7"
