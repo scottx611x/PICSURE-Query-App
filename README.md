@@ -1,5 +1,5 @@
 # afl-querier
-Web app that allows for querying the [BD2K PICSURE API](http://bd2k-picsure.hms.harvard.edu/) using AFL query strings
+Web app that allows for querying the [BD2K PICSURE API](http://bd2k-picsure.hms.harvard.edu/) using [AFL query strings](http://paradigm4.com/HTMLmanual/13.3/scidb_ug/ch14.html)
 
 Can currently output results to:
 - a [plotly](https://plot.ly/) table
