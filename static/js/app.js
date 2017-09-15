@@ -2,6 +2,10 @@
  * Created by scott on 9/14/17.
  */
 $(document).ready(function(){
+    $(".childshow").click(function (e) {
+        e.stopPropagation();
+        jQuery(this).children('.childshow').toggle();
+    });
     var geneQueryString = "grouped_aggregate(filter(grouped_aggregate(apply(apply(cross_join(cross_join(filter(SSC.DataI,(VCF_GT='1/0' OR VCF_GT='0/1' OR VCF_GT='1/1') AND VCF_DP > 10 AND VCF_CQ > 50) as x,filter(SSC.VariantsI,Gene_refGene= 'GENE_NAME_PLACEHOLDER' AND VCF_FILTER='PASS') as y,x.Variant_ID,y.Variant_ID) as x1,SSC.MetaDataI as y1,x1.Individual_ID,y1.Individual_ID),Family,int64(Family_ID),Member,int64(dim_status(Status))),counter,iif ( status_dim ( Member ) = 'p1', 1, 2 )),SUM( counter ) AS family_pattern, MIN ( VarID ) AS VarID,Family, Variant_ID, Gene_refGene),family_pattern = 1),COUNT(*) AS num_variants, MIN ( VarID ) AS VarID,Family, Gene_refGene)";
 
     var geneInput = $("#gene-names");
@@ -78,7 +82,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         // Gather values set in form
-        var jsonQuery = $("#json-input").val();
+        var jsonQuery = $("#afl-input").val();
         console.log(jsonQuery);
         window.location.replace('/json-table?query='+ jsonQuery);
     });

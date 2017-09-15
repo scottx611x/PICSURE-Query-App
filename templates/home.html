@@ -1,11 +1,12 @@
 {% extends("base.html") %}
 
 {% block content %}
-  <div class="col">
+  <div class="col childshow">
     <div id="afl-wrapper">
      <div id="afl-container" class="form-group">
         <h3>Create a plotly table from Gene info</h3>
          <p>
+           Dynamically updating query string:
            <code id="gene-query"></code>
          </p>
         <div id="gene-names-wrapper">
@@ -20,7 +21,7 @@
         <button id="submit-afl-1"
                 type="button"
                 class="btn btn-lg btn-success">
-          Submit AFL Query
+          Submit AFL-based Query
         </button>
      </div>
     </div>
@@ -28,10 +29,10 @@
   <br>
   <hr>
   <br>
-  <div class="col">
+  <div class="col childshow">
     <div id="afl-wrapper">
      <div id="afl-container" class="form-group">
-        <h3>Create a plotly table from AFL query string</h3>
+        <h3>Create a plotly table from JSON/AFL query string</h3>
         <p>
           Example AFL 1:
           <code>
@@ -44,43 +45,27 @@
             grouped_aggregate(cross_join(cross_join(project(SSC.DataI,VCF_AD, VCF_GT) as X1,project(filter(SSC.VariantsI,Gene_refGene='CHD8'),Var_ID, Ref, Alt, Func_refGene, Gene_refGene, ExonicFunc_refGene) as Y1,X1.Variant_ID,Y1.Variant_ID) as X2,project(SSC.MetaDataI,Family_ID, Status, Family_and_Status) as Y2,X2.Individual_ID,Y2.Individual_ID),count(*),Family_ID, Variant_ID)
           </code>
         </p>
+         <p>
+           Example JSON Query:
+           <code>
+             {'where': [{'field': {'pui': '/SciDBAFL'}, 'predicate': 'AFL', 'fields': {'IQUERY': "limit(grouped_aggregate(cross_join(cross_join(project(SSC.DataI,VCF_AD, VCF_GT) as X1,project(filter(SSC.VariantsI,Gene_refGene='CHD8'),Var_ID, Ref, Alt, Func_refGene, Gene_refGene, ExonicFunc_refGene) as Y1,X1.Variant_ID,Y1.Variant_ID) as X2,project(SSC.MetaDataI,Family_ID, Status, Family_and_Status) as Y2,X2.Individual_ID,Y2.Individual_ID),count(*),Family_ID, Variant_ID), 10)"}}]}
+           </code>
+         </p>
         <input id="afl-input"
                class="form-control"
                type="text"
-               placeholder="paste AFL query string here"
+               placeholder="paste query string here"
                required>
         <br>
         <button id="submit-afl-2"
                 type="button"
                 class="btn btn-lg btn-success">
-          Submit AFL Query
+          Submit AFL-based Query
         </button>
-     </div>
-    </div>
-  </div>
-  <br>
-  <hr>
-  <br>
-  <div class="col">
-    <div id="json-wrapper">
-     <div id="json-container" class="form-group">
-        <h3>Create a plotly table from JSON query string</h3>
-       <p>
-         Example JSON Query:
-         <code>
-           {'where': [{'field': {'pui': '/SciDBAFL'}, 'predicate': 'AFL', 'fields': {'IQUERY': "limit(grouped_aggregate(cross_join(cross_join(project(SSC.DataI,VCF_AD, VCF_GT) as X1,project(filter(SSC.VariantsI,Gene_refGene='CHD8'),Var_ID, Ref, Alt, Func_refGene, Gene_refGene, ExonicFunc_refGene) as Y1,X1.Variant_ID,Y1.Variant_ID) as X2,project(SSC.MetaDataI,Family_ID, Status, Family_and_Status) as Y2,X2.Individual_ID,Y2.Individual_ID),count(*),Family_ID, Variant_ID), 10)"}}]}
-         </code>
-       </p>
-        <input id="json-input"
-               class="form-control"
-               type="text"
-               placeholder="paste JSON query string here"
-               required>
-        <br>
-        <button id="submit-json"
+       <button id="submit-json"
                 type="button"
                 class="btn btn-lg btn-success">
-          Submit JSON Query
+          Submit JSON-based Query
         </button>
      </div>
     </div>
