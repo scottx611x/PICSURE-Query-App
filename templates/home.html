@@ -1,0 +1,36 @@
+{% extends("base.html") %}
+
+{% block content %}
+  <div id="afl-wrapper">
+   <div id="afl-container" class="form-group row">
+      <div class="col-10">
+        <h3>Create a plotly table from AFL query string</h3>
+
+        <p>
+          Basic query:
+          <code>
+            filter(SSC.MetaDataI,Status = 'fa' OR Status = 'mo' OR Status = 'p1')
+          </code>
+        </p>
+        <p>
+          Advanced query:
+          <code>
+            grouped_aggregate(cross_join(cross_join(project(SSC.DataI,VCF_AD, VCF_GT) as X1,project(filter(SSC.VariantsI,Gene_refGene='CHD8'),Var_ID, Ref, Alt, Func_refGene, Gene_refGene, ExonicFunc_refGene) as Y1,X1.Variant_ID,Y1.Variant_ID) as X2,project(SSC.MetaDataI,Family_ID, Status, Family_and_Status) as Y2,X2.Individual_ID,Y2.Individual_ID),count(*),Family_ID, Variant_ID)
+          </code>
+        </p>
+        <input id="afl-input"
+               class="form-control"
+               type="text"
+               placeholder="paste AFL query string here"
+               required>
+        <br>
+        <button id="submit"
+                type="button"
+                class="btn btn-lg btn-success">
+          Submit
+        </button>
+
+      </div>
+   </div>
+  </div>
+{% endblock %}
