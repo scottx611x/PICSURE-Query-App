@@ -11,7 +11,7 @@ SSC_REST_URL = "https://ssc-dev.hms.harvard.edu/rest/v1"
 TEAM_HOST = "team-03.aws.dbmi.hms.harvard.edu"
 TEAM_REST_URL = "https://{}/SSC/rest".format(TEAM_HOST)
 
-API_URL = SSC_REST_URL
+API_URL = TEAM_REST_URL
 
 # Endpoints
 PROCESS_SERVICE_URL = "{}/{}".format(API_URL, "processService")
