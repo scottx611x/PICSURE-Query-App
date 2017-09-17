@@ -19,6 +19,8 @@ Can currently output results to:
 You should be able to view the site @ http://localhost:5000
 
 # TODOs:
+- [ ] Dockerize w/ Apache
+- [ ] Fix coding sins from hacakthon
 - [ ] Backend with async support/ Python 3+: [sanic](https://github.com/channelcat/sanic)
 - [ ] Celery + DB for long running queries
 - [ ] Auth 0
