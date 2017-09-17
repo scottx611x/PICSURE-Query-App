@@ -29,11 +29,4 @@ You should be able to view the site @ http://localhost:5000
 
 ---
 
-# Query
-<img width="1679" alt="screen shot 2017-09-15 at 3 36 09 pm" src="https://user-images.githubusercontent.com/5629547/30500377-0454165a-9a2c-11e7-9c42-e88e38a9d0dd.png">
-
-# Wait
-<img width="1680" alt="screen shot 2017-09-15 at 3 36 21 pm" src="https://user-images.githubusercontent.com/5629547/30500378-04553a44-9a2c-11e7-91ec-cc37f930e32b.png">
-
-# Viola!
-<img width="1679" alt="screen shot 2017-09-15 at 3 37 02 pm" src="https://user-images.githubusercontent.com/5629547/30500379-0458b822-9a2c-11e7-8c4e-52ee92e990a0.png">
+![sep-17-2017 16-35-31](https://user-images.githubusercontent.com/5629547/30524708-9358dfde-9bc6-11e7-96d5-4bbb869a1713.gif)
