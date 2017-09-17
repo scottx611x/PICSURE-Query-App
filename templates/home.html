@@ -4,14 +4,14 @@
   <div class="col childshow">
     <div id="afl-wrapper">
      <div id="afl-container" class="form-group">
-        <h3>Obtain denovo SNVs querying the SSC Variant Database using a gene
-          of interest
+        <h3>Obtain denovo SNVs querying the SSC Variant Database
         </h3>
          <p>
            <code id="gene-query"></code>
          </p>
         <div id="gene-names-wrapper">
           <i id="gene-spinner" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+          <label id="label">Select a gene of interest</label>
           <input id="gene-names"
                  class="form-control"
                  type="text"
@@ -30,9 +30,9 @@
   <br>
   <hr>
   <br>
-  <div class="col childshow">
-    <div id="afl-wrapper">
-     <div id="afl-container" class="form-group">
+  <div class="col">
+    <div id="json-wrapper">
+     <div id="json-container" class="form-group">
         <h3>Make a direct query upon the SSC Variant Database</h3>
         <p>
           Example AFL 1:

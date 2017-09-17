@@ -1,8 +1,8 @@
-#afl-container, #json-wrapper {
+#afl-container, #json-container {
     max-width: 90%;
     margin:auto;
 }
-#afl-wrapper, #json-container {
+#afl-wrapper, #json-wrapper {
     width: 100%;
     text-align: center;
 }
