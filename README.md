@@ -18,6 +18,13 @@ Can currently output results to:
 - `python app.py`
 You should be able to view the site @ http://localhost:5000
 
+# TODOs:
+- [ ] Backend with async support/ Python 3+: [sanic](https://github.com/channelcat/sanic)
+- [ ] Celery + DB for long running queries
+- [ ] Auth 0
+- [ ] Add NHANES support
+- [ ] More dynamic query interface for users. See [Jason's dynamic dropdowns](https://github.com/hms-dbmi/hackathon-Sept2017/blob/835140a43efc7962645ba9a4d8cbcf5877ea8d2c/hackathon_examples/pic-sure-api-driven-ui/src/main/webapp/js/dropdownBuilder.js)
+
 ---
 
 # Query
