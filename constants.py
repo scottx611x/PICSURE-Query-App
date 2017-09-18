@@ -4,14 +4,14 @@ RUNNING_STATE = "RUNNING"
 ERROR_STATE = "ERROR"
 
 # API key
-BD2K_PICSURE_API_KEY = "snank457d7cbf9525s7p220t7i"
+BD2K_PICSURE_API_KEY = "ngh33gtg6781076t4vtcb1f6bb"
 
 # Hosts
 SSC_REST_URL = "https://ssc-dev.hms.harvard.edu/rest/v1"
 TEAM_HOST = "team-03.aws.dbmi.hms.harvard.edu"
 TEAM_REST_URL = "https://{}/SSC/rest".format(TEAM_HOST)
 
-API_URL = TEAM_REST_URL
+API_URL = SSC_REST_URL
 
 # Endpoints
 PROCESS_SERVICE_URL = "{}/{}".format(API_URL, "processService")

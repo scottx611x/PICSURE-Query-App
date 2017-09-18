@@ -14,7 +14,6 @@ $(document).ready(function(){
     var geneAflQuery = null;
 
     geneName.text(geneQueryString);
-    geneName.hide();
 
     var geneAfl = "uniq(sort(project(SSC.VariantsI, Gene_refGene)))";
     if (!localStorage["geneData"]) {
